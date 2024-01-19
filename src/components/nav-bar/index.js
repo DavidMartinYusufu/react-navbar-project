@@ -1,5 +1,6 @@
 import React  from "react";
 import "./index.css";
+import { NavLink } from 'react-router-dom'
 
 export default function NavBar() {
 
@@ -7,10 +8,10 @@ export default function NavBar() {
     <div className="layout-column justify-content-center align-items-center">
       <div className="layout-row justify-content-around align-items-center mt-20 links"
            data-testid="navigation-tabs">
-          <a>Home</a>
-          <a>News</a>
-          <a>Contact</a>
-          <a>About</a>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/NewsPage'>News</NavLink>
+          <NavLink to='/ContactPage'>Contact</NavLink>
+          <NavLink to={'/AboutPage'}>About</NavLink>
       </div>
 
       <div className="card w-20 ma-0">

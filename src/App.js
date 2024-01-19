@@ -1,15 +1,42 @@
 import React  from 'react';
 import './App.css';
-import NavBar from './components/nav-bar/index.js';
-import 'h8k-components';
-
-const title = "Navigation Bar";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Layout from './Layouts/Layout';
+import HomePage from './Pages/HomePage';
+import AboutPage from './Pages/AboutPage';
+import NewsPage from './Pages/NewsPage';
+import ContactPage from './Pages/ContactPage';
 
 function App() {
+
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+      children: [
+        {
+          path: '/',
+          element: <HomePage />
+        },
+        {
+          path: '/AboutPage',
+          element: <AboutPage />
+        },
+        {
+          path: '/ContactPage',
+          element: <ContactPage />
+        },
+        {
+          path: '/NewsPage',
+          element: <NewsPage />
+        }
+      ]
+    }
+  ])
   return (
     <div>
-      <h8k-navbar header={title} />
-      <NavBar/>
+      {/*  
+      <NavBar/> */}
+      <RouterProvider router={router}/>
     </div>
   );
 }
